@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Paytone One">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans Display">
     <title>Digital Clock</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 </head>
 
 <body>
@@ -23,86 +25,108 @@
             <div class="timeline">
                 <div class="time">TIME</div>
                 <div class="box">
-                    <span class="ten">10</span>
+                    <span class="ten" id="hr"></span>
                     <span class="hrs">hours</span>
                 </div>
                 <span style="font-size:3em;margin-top:17px;">:</span>
                 <div class="box">
-                    <span class="ten">00</span>
+                    <span class="ten" id="min"></span>
                     <span class="hrs">mins</span>
                 </div>
                 <span style="font-size:3em;margin-top:17px;">:</span>
                 <div class="box">
-                    <span class="ten">01</span>
+                    <span class="ten" id="sec"></span>
                     <span class="hrs">secs</span>
                 </div>
                 
                 <div class="box1" style="margin-left:20px;">
-                <span class="am">AM</span>
+                <span  id="am"></span>
                 </div>
             </div>
-            
+            <div class="white-bg-time"></div>
+        <div class="purple-bg-time"></div>
         </div>
+        
         <div class="grid4">
             <ul type="none">
                 <li><span><img src="wake_up.jpg" alt=""></span>
-                   <label for="">Set wake up time</label>
-                        <select name="" id="">
-                            <option value="">10 AM-11 AM</option>
-                            <option value="">12 PM-1 PM</option>
-                            <option value="">4 PM-5 PM</option>
-                            <option value="">8 PM-9 PM</option>
+                   <label for="wt">Set wake up time</label>
+                        <select name="wt" id="wt">
+                            <option value="9 AM-10 AM">9 AM-10 AM</option>
+                            <option value="10 AM-11 AM">10 AM-11 AM</option>
+                            <option value="11 AM-12 PM">11 AM-12 PM</option>
+                            <option value="12 PM-13 PM">12 PM-13 PM</option>
+                            <option value="15 PM-16 PM">15 PM-16 PM</option>
+                            <option value="16 PM-17 PM">16 PM-17 PM</option>
+                            <option value="19 PM-20 PM">19 PM-20 PM</option>
+                            <option value="20 PM-9 AM">20 PM-9 AM</option>
+                            
+                            
                         </select>
                 </li>
                 <li><span><img src="lunch_time.jpg" alt=""></span>
-                    <label for="fm">Set lunch time</label>
-                    <select name="tm" id="tm">
-                        <option value="">10 AM-11 AM</option>
-                        <option value="">12 PM-1 PM</option>
-                        <option value="">4 PM-5 PM</option>
-                        <option value="">8 PM-9 PM</option>
+                    <label for="ft">Set lunch time</label>
+                    <select name="ft" id="ft">
+                        <option value="9 AM-10 AM">9 AM-10 AM</option>
+                        <option value="10 AM-11 AM">10 AM-11 AM</option>
+                        <option value="11 AM-12 PM">11 AM-12 PM</option>
+                        <option value="12 PM-13 PM">12 PM-13 PM</option>
+                        <option value="15 PM-16 PM">15 PM-16 PM</option>
+                        <option value="16 PM-17 PM">16 PM-17 PM</option>
+                        <option value="19 PM-20 PM">19 PM-20 PM</option>
+                        <option value="20 PM-9 AM">20 PM-9 AM</option>
                     </select>
                 </li>
                 <li><span><img src="nap_time.jpg" alt=""></span>
-                    <label for="">Set nap time</label>
-                    <select name="" id="">
-                        <option value="">10 AM-11 AM</option>
-                        <option value="">12 PM-1 PM</option>
-                        <option value="">4 PM-5 PM</option>
-                        <option value="">8 PM-9 PM</option>
+                    <label for="nt">Set nap time</label>
+                    <select name="nt" id="nt">
+                        <option value="9 AM-10 AM">9 AM-10 AM</option>
+                        <option value="10 AM-11 AM">10 AM-11 AM</option>
+                        <option value="11 AM-12 PM">11 AM-12 PM</option>
+                        <option value="12 PM-13 PM">12 PM-13 PM</option>
+                        <option value="15 PM-16 PM">15 PM-16 PM</option>
+                        <option value="16 PM-17 PM">16 PM-17 PM</option>
+                        <option value="19 PM-20 PM">19 PM-20 PM</option>
+                        <option value="20 PM-9 AM">20 PM-9 AM</option>
                     </select>
                 </li>
-                <li><span><i class="fa-solid fa-house-night"></i></span>
-                    <label for="">Set night time</label>
-                    <select name="" id="">
-                        <option value="">10 AM-11 AM</option>
-                        <option value="">12 PM-1 PM</option>
-                        <option value="">4 PM-5 PM</option>
-                        <option value="">8 PM-9 PM</option>
+                <li style="padding-bottom: 25px;"><span class="material-icons" style="color: #3D087B ;">bedtime</span>
+
+                    <label for="st">Set night time</label>
+                    <select name="st" id="st">
+                        <option value="9 AM-10 AM">9 AM-10 AM</option>
+                        <option value="10 AM-11 AM">10 AM-11 AM</option>
+                        <option value="11 AM-12 PM">11 AM-12 PM</option>
+                        <option value="12 PM-13 PM">12 PM-13 PM</option>
+                        <option value="15 PM-16 PM">15 PM-16 PM</option>
+                        <option value="16 PM-17 PM">16 PM-17 PM</option>
+                        <option value="19 PM-20 PM">19 PM-20 PM</option>
+                        <option value="20 PM-9 AM">20 PM-9 AM</option>
                     </select>
                 </li>
             </ul>
         </div>
         <div class="grid5">
-            <h2 class="grab">GRAB SOME HEALTHY BREAKFAST!!!</h2>
+            <h2 id="grab" class="grab">GRAB SOME HEALTHY BREAKFAST!!!</h2>
         </div>
         <div class="grid6">
-            <img class="morning" src="morning.jpg" alt="404 error" width="500px" height="350px">
+            <img class="morning" id="img" src="morning.jpg" alt="404 error" width="500px" height="350px">
         </div>
         <div class="grid7">
-            <h2 style="margin-left:30px;">GOOD MORNING!! WAKE UP !!</h2>
+            <h2 id="heading" style="margin-left:30px;">GOOD MORNING!! WAKE UP !!</h2>
         </div>
         <div class="grid8">
-            <button><span>Set Alarm</span></button>
+            <button id="alarm"><span>Set Alarm</span></button>
         </div>
         <div class="grid9">
-            Wake Up Time : 10AM - 11AM <br>
-            Lunch Time : 12PM - 1PM <br>
-            Nap Time : 4PM - 5PM <br>
-            Night Time : 8PM - 9AM
+            Wake Up Time :<span id="wat"> Set time </span><br>
+            Lunch Time :<span id="lut"> Set time </span><br>
+            Nap Time :<span id="nat"> Set time</span><br>
+            Night Time :<span id="slt"> Set time</span> 
         </div>
     </div>
    </div>
+   <script src="index.js"></script>
 </body>
 
 </html>
