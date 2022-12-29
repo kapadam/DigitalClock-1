@@ -23,7 +23,7 @@ function timer(){
     else{
       am.innerText="AM";
     }
-    setMessage(numberFormet(hr%12||12),am.innerText);
+    setMessage(numberFormat(hr%12||12),am.innerText);
 }
 
 setInterval(function(){
@@ -31,21 +31,7 @@ setInterval(function(){
 },1000);
 
 
-// let btn=document.getElementById("alarm");
-// btn.addEventListener("click",function(){
-//     const wt=document.getElementById("wt").value;
-//     const ft=document.getElementById("ft").value;
-//     const nt=document.getElementById("nt").value;
-//     const st=document.getElementById("st").value;
-//         let wat=document.getElementById("wat");
-//         wat.innerText=wt;
-//         let lut=document.getElementById("lut");
-//         lut.innerText=ft;
-//         let nat=document.getElementById("nat");
-//         nat.innerText=nt;
-//         let slt=document.getElementById("slt");
-//         slt.innerText=st;
-// })
+
 
 let wakeUpTimeTable = document.getElementById('wake-up-time-table');
 let lunchTimeTable = document.getElementById('lunch-time-table');
@@ -76,19 +62,19 @@ function timeTable(timeEventArray) {
         if(timeEventArray[i].timeEvent.split(" ")[0].includes(numberFormat(hour % 12 || 12)) && timeEventArray[i].timeEvent.split(" ")[0].includes(timeUnit)) {
             if(timeEventArray[i].timeText === "Wake Up Time : ") {
                 grabmessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
-                Image[0].src = 'morning.png';
+                Image.src = 'morning.png';
             } else if(timeEventArray[i].timeText === "Lunch Time : ") {
                 grabmessage.innerText = `LET'S HAVE SOME LUNCH !!`;
-                Image[0].src = 'lunch.png';
+                Image.src = 'lunch.png';
             } else if(timeEventArray[i].timeText === "Nap Time : ") {
                 grabmessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
-                Image[0].src = 'evening.png';
+                Image.src = 'evening.png';
             } else if(timeEventArray[i].timeText === "Night Time : ") {
                 grabmessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
-                Image[0].src = 'sleep.png';
+                Image.src = 'sleep.png';
             } else {
                 grabmessage.innerText = 'Take care of yourself';
-                Image[0].src = 'default.jpg';
+                Image.src = 'default.jpg';
             }
         }
     }
@@ -137,9 +123,9 @@ function setMessage(hour, timeUnit) {
 
     if((hour >=10 || hour < 12) && timeUnit === 'AM') {
         heading.innerText = 'GOOD MORNING!! WAKE UP !!';
-    } else if((hour >= 12 || hour < 4) && timeUnit === 'PM') {
-        heading.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
-    } else if((hour >=4 || hour < 8) && timeUnit === 'PM') {
+    } else if((hour >= 12 || hour < 04) && timeUnit === 'PM') {
+        heading.innerText = 'GOOD AFTERNOON !! HAVE YOUR LUNCH';
+    } else if((hour >=04 || hour < 08) && timeUnit === 'PM') {
         heading.innerText = 'GOOD EVENING !!';
     } else {
         heading.innerText = 'GOOD NIGHT !!';

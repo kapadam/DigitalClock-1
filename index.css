@@ -153,11 +153,11 @@ button:hover:before{
     background-color: #6e168b;
     border-radius: 10px;
     width:230px;
-    height:100px;
+    height:125px;
     color: #C539B4;
     padding:10px;
     font-family: "Inter",sans-serif;
-    line-height: 1.5em;
+    line-height: 0.7em;
     margin-left: 0px;
 }
 .timeline{
