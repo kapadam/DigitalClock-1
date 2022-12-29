@@ -1,33 +1,34 @@
 function numberFormat(n){
-    return n > 9 ? "" + n: "0" + n;
+    // console.log(n)
+return n > 9 ? "" + n : "0" + n;
 }
 
 function timer(){
-    let hour=document.getElementById("hr");
-    let minute=document.getElementById("min");
-    let second=document.getElementById("sec");
-    let date=new Date();
-    let hr=date.getHours();
-    hour.innerText = `${numberFormat(hr%12||12)}`;
-    let min=date.getMinutes();
-    minute.innerText =`${numberFormat(min)}`;
-    let sec=date.getSeconds();
-    second.innerText = `${numberFormat(sec)}`;
-  
-    let am=document.getElementById("am");
-    
-    if(hr>=12 && min>=00 && sec>=01){
-        
-      am.innerText="PM";
-    }
-    else{
-      am.innerText="AM";
-    }
-    setMessage(numberFormat(hr%12||12),am.innerText);
+let hour=document.getElementById("hr");
+let minute=document.getElementById("min");
+let second=document.getElementById("sec");
+let date=new Date();
+let hr=date.getHours();
+hour.innerText = `${numberFormat(hr%12||12)}`;
+let min=date.getMinutes();
+minute.innerText =`${numberFormat(min)}`;
+let sec=date.getSeconds();
+second.innerText = `${numberFormat(sec)}`;
+
+let am=document.getElementById("am");
+
+if(hr>=12 && min>=00 && sec>=01){
+
+am.innerText="PM";
+}
+else{
+am.innerText="AM";
+}
+setMessage(numberFormat(hr%12||12),am.innerText);
 }
 
 setInterval(function(){
-    timer()
+timer()
 },1000);
 
 
@@ -40,94 +41,103 @@ let nightTimeTable = document.getElementById('night-time-table');
 let setBtn = document.getElementById('alarm');
 let timeTableArray = [];
 function timeTable(timeEventArray) {
-    //event.target -->it gets you the targeted element
-    //event.target.value --> it will give u the value of the selected option
-    //event.target.selectedOptions will give you the collection of all the options that you have
-    //selected
-    let array = document.getElementById('time-show').getElementsByTagName('p');
-    for(let i =0;i<array.length;i++) {
-        for(let j =0;j<timeEventArray.length;j++) {
-            if(array[i].getElementsByTagName('span')[0].innerText === timeEventArray[j].timeText) {
-                array[i].getElementsByTagName('span')[1].innerText = timeEventArray[j].timeEvent;
-            }
-        }
-    }
-
-    let hour = d.getHours();
-    let timeUnit = hour >= 12 ? 'PM' : 'AM';
-    let grabmessage  = document.getElementById('grab');
-    let Image    = document.getElementById('Img').getElementsByTagName('img');
-
-    for(let i=0;i<timeEventArray.length;i++) {
-        if(timeEventArray[i].timeEvent.split(" ")[0].includes(numberFormat(hour % 12 || 12)) && timeEventArray[i].timeEvent.split(" ")[0].includes(timeUnit)) {
-            if(timeEventArray[i].timeText === "Wake Up Time : ") {
-                grabmessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
-                Image.src = 'morning.png';
-            } else if(timeEventArray[i].timeText === "Lunch Time : ") {
-                grabmessage.innerText = `LET'S HAVE SOME LUNCH !!`;
-                Image.src = 'lunch.png';
-            } else if(timeEventArray[i].timeText === "Nap Time : ") {
-                grabmessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
-                Image.src = 'evening.png';
-            } else if(timeEventArray[i].timeText === "Night Time : ") {
-                grabmessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
-                Image.src = 'sleep.png';
-            } else {
-                grabmessage.innerText = 'Take care of yourself';
-                Image.src = 'default.jpg';
-            }
-        }
+//event.target -->it gets you the targeted element
+//event.target.value --> it will give u the value of the selected option
+//event.target.selectedOptions will give you the collection of all the options that you have
+//selected
+let array = document.getElementById('time-show').getElementsByTagName('p');
+for(let i =0;i<array.length;i++) {
+for(let j =0;j<timeEventArray.length;j++) {
+    if(array[i].getElementsByTagName('span')[0].innerText === timeEventArray[j].timeText) {
+        array[i].getElementsByTagName('span')[1].innerText = timeEventArray[j].timeEvent;
     }
 }
-wakeUpTimeTable.addEventListener("change", function(event) {
-    let obj = {
-        timeText: document.getElementById('time-show').getElementsByTagName('p')[0].getElementsByTagName('span')[0].innerText,
-        timeEvent: event.target.selectedOptions[0].innerText
-    }
+}
 
-    timeTableArray.push(obj);
+let date=new Date();
+let hour = date.getHours();
+let timeUnit = hour >= 12 ? 'PM' : 'AM';
+let heading= document.getElementById('heading');
+let Image    = document.getElementById('Img').getElementsByTagName('img');
+
+for(let i=0;i<timeEventArray.length;i++) {
+console.log(timeEventArray[i].timeEvent.split(" ")[0].includes(hour % 12 || 12))
+console.log(timeEventArray[i].timeEvent.split(" ")[1].includes(timeUnit))
+if(timeEventArray[i].timeEvent.split(" ")[0].includes(hour % 12 || 12) && timeEventArray[i].timeEvent.split(" ")[1].includes(timeUnit)) {
+    
+    if(timeEventArray[i].timeText === "Wake Up Time :") {
+        heading.innerText = 'GOOD MORNING!! WAKE UP !!';
+        Image[0].src = 'first-healthy-image.png';
+    } else if(timeEventArray[i].timeText === "Lunch Time :") {
+        heading.innerText = 'GOOD AFTERNOON !! HAVE YOUR LUNCH';
+        Image[0].src = 'lunch.png';
+    } else if(timeEventArray[i].timeText === "Nap Time :") {
+        heading.innerText = 'GOOD EVENING !!';
+        Image[0].src = 'evening.png';
+    } else if(timeEventArray[i].timeText === "Night Time :") {
+        heading.innerText = 'GOOD NIGHT !!';
+        Image[0].src = 'sleep.png';
+    } else {
+        heading.innerText = 'TAKE CARE OF YOUR HEALTH!!!';
+        Image[0].src = 'default.jpg';
+    }
+}
+}
+}
+wakeUpTimeTable.addEventListener("change", function(event) {
+let obj = {
+timeText: document.getElementById('time-show').getElementsByTagName('p')[0].getElementsByTagName('span')[0].innerText,
+timeEvent: event.target.selectedOptions[0].innerText
+}
+
+timeTableArray.push(obj);
 });
 
 lunchTimeTable.addEventListener("change", function(event){
-    let obj = {
-        timeText: document.getElementById('time-show').getElementsByTagName('p')[1].getElementsByTagName('span')[0].innerText,
-        timeEvent: event.target.selectedOptions[0].innerText
-    }
+let obj = {
+timeText: document.getElementById('time-show').getElementsByTagName('p')[1].getElementsByTagName('span')[0].innerText,
+timeEvent: event.target.selectedOptions[0].innerText
+}
 
-    timeTableArray.push(obj);
+timeTableArray.push(obj);
 });
 
 napTimeTable.addEventListener("change", function(event){
-    let obj = {
-        timeText: document.getElementById('time-show').getElementsByTagName('p')[2].getElementsByTagName('span')[0].innerText,
-        timeEvent: event.target.selectedOptions[0].innerText
-    }
+let obj = {
+timeText: document.getElementById('time-show').getElementsByTagName('p')[2].getElementsByTagName('span')[0].innerText,
+timeEvent: event.target.selectedOptions[0].innerText
+}
 
-    timeTableArray.push(obj);
+timeTableArray.push(obj);
 });
 
 nightTimeTable.addEventListener("change", function(event){
-    let obj = {
-        timeText: document.getElementById('time-show').getElementsByTagName('p')[3].getElementsByTagName('span')[0].innerText,
-        timeEvent: event.target.selectedOptions[0].innerText
-    }
+let obj = {
+timeText: document.getElementById('time-show').getElementsByTagName('p')[3].getElementsByTagName('span')[0].innerText,
+timeEvent: event.target.selectedOptions[0].innerText
+}
 
-    timeTableArray.push(obj);
+timeTableArray.push(obj);
 });
 
 setBtn.addEventListener('click', function() {
-    timeTable(timeTableArray);
+timeTable(timeTableArray);
 });
 function setMessage(hour, timeUnit) {
-    let heading= document.getElementById('heading');
 
-    if((hour >=10 || hour < 12) && timeUnit === 'AM') {
-        heading.innerText = 'GOOD MORNING!! WAKE UP !!';
-    } else if((hour >= 12 || hour < 04) && timeUnit === 'PM') {
-        heading.innerText = 'GOOD AFTERNOON !! HAVE YOUR LUNCH';
-    } else if((hour >=04 || hour < 08) && timeUnit === 'PM') {
-        heading.innerText = 'GOOD EVENING !!';
-    } else {
-        heading.innerText = 'GOOD NIGHT !!';
-    }
+let grabmessage  = document.getElementById('grab');
+
+if((hour >=10 || hour < 12) && timeUnit === 'AM') {
+grabmessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
+
+} else if((hour >= 12 || hour < 04) && timeUnit === 'PM') {
+grabmessage.innerText = `LET'S HAVE SOME LUNCH !!`;
+
+} else if((hour >=04 || hour < 08) && timeUnit === 'PM') {
+grabmessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
+
+} else {
+grabmessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
+
+}
 }
