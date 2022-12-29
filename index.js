@@ -41,10 +41,6 @@ let nightTimeTable = document.getElementById('night-time-table');
 let setBtn = document.getElementById('alarm');
 let timeTableArray = [];
 function timeTable(timeEventArray) {
-//event.target -->it gets you the targeted element
-//event.target.value --> it will give u the value of the selected option
-//event.target.selectedOptions will give you the collection of all the options that you have
-//selected
 let array = document.getElementById('time-show').getElementsByTagName('p');
 for(let i =0;i<array.length;i++) {
 for(let j =0;j<timeEventArray.length;j++) {
