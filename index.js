@@ -67,16 +67,16 @@ if(timeEventArray[i].timeEvent.split(" ")[0].includes(hour % 12 || 12) && timeEv
     
     if(timeEventArray[i].timeText === "Wake Up Time :") {
         heading.innerText = 'GOOD MORNING!! WAKE UP !!';
-        Image[0].src = 'first-healthy-image.png';
+        Image[0].src = 'morning.jpg';
     } else if(timeEventArray[i].timeText === "Lunch Time :") {
         heading.innerText = 'GOOD AFTERNOON !! HAVE YOUR LUNCH';
-        Image[0].src = 'lunch.png';
+        Image[0].src = 'lunch.jpeg';
     } else if(timeEventArray[i].timeText === "Nap Time :") {
         heading.innerText = 'GOOD EVENING !!';
-        Image[0].src = 'evening.png';
+        Image[0].src = 'evening.jpg';
     } else if(timeEventArray[i].timeText === "Night Time :") {
         heading.innerText = 'GOOD NIGHT !!';
-        Image[0].src = 'sleep.png';
+        Image[0].src = 'night.jpeg';
     } else {
         heading.innerText = 'TAKE CARE OF YOUR HEALTH!!!';
         Image[0].src = 'default.jpg';
